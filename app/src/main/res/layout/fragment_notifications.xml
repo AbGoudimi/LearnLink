@@ -21,6 +21,6 @@
         android:text="Your notifications :"
         app:layout_constraintStart_toStartOf="@+id/notification_recycler_view"
         app:layout_constraintTop_toTopOf="parent" />
-    <!--tools:listitem="@layout/notification_list_item"--> />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
