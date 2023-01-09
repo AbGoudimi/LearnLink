@@ -1,4 +1,4 @@
-package com.example.learnlink;
+package com.example.learnlink.Model;
 
 public class Year {
     private static int id=0;

@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
+
+import com.example.learnlink.Fragment.CalendarFragment;
+import com.example.learnlink.Fragment.HomeFragment;
+import com.example.learnlink.Fragment.NotificationsFragment;
+import com.example.learnlink.Fragment.ProfileFragment;
 import com.example.learnlink.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        showFragment(new HomeFragment());
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.nav_home:
@@ -38,4 +44,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container,fragment);
         fragmentTransaction.commit();
     }
+
 }

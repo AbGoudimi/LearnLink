@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#B4CACA"
+    android:id="@+id/itemTutorLayout">
+
+    <ImageView
+        android:id="@+id/tutorImage"
+        android:layout_width="67dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tutorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/tutorImage"
+        android:text="Abdellah Goudmi"
+        android:textColor="@color/black"
+        android:textSize="20dp"></TextView>
+
+    <TextView
+        android:id="@+id/tutorEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ab.Goudmi@gmail.com"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/tutorImage"
+        android:textColor="@color/black"
+        android:layout_below="@id/tutorName"
+        android:layout_marginLeft="30dp"></TextView>
+    <TextView
+        android:id="@+id/tutorPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+212 607957797"
+        android:layout_marginStart="30dp"
+        android:layout_toEndOf="@+id/tutorImage"
+        android:textColor="@color/black"
+        android:layout_below="@id/tutorEmail"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="15dp"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/tutorPhoneNumber"
+        android:background="@drawable/costume_button"></LinearLayout>
+
+
+</RelativeLayout>

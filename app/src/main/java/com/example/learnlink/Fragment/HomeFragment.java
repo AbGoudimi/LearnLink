@@ -1,5 +1,6 @@
-package com.example.learnlink;
+package com.example.learnlink.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.learnlink.Interface.SubjectRecyclerViewInterface;
+import com.example.learnlink.Model.Subject;
+import com.example.learnlink.Model.Year;
+import com.example.learnlink.R;
+import com.example.learnlink.Adapter.SubjectAdapter;
+import com.example.learnlink.TutorListActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +28,7 @@ import java.util.List;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements SubjectRecyclerViewInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,7 +90,7 @@ public class HomeFragment extends Fragment {
         recyclerView = getView().findViewById(R.id.subjects_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        SubjectAdapter adapter = new SubjectAdapter(getContext(),subjects);
+        SubjectAdapter adapter = new SubjectAdapter(getContext(),subjects,this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -93,5 +101,11 @@ public class HomeFragment extends Fragment {
         subjects.add(new Subject("c#",new Year("isi4")));
         subjects.add(new Subject("java",new Year("isi4")));
         subjects.add(new Subject("sgbd",new Year("isi4")));
+    }
+
+    @Override
+    public void onItemClick(Subject subject) {
+        Intent i = new Intent(getActivity(), TutorListActivity.class);
+        startActivity(i);
     }
 }

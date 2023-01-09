@@ -3,30 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".Fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="#1b9476"
+                android:elevation="2dp"
                 android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
                     android:text="Home"
-                    android:textSize="30dp"
-                    android:textColor="@color/white"></TextView>
+                    android:textColor="@color/white"
+                    android:textSize="30dp"></TextView>
+
                 <SearchView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/costume_lightbg_radius"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+
+                    android:background="@drawable/costume_lightbg_radius"
                     android:maxWidth="250dp"></SearchView>
             </RelativeLayout>
 
@@ -34,7 +44,7 @@
                 android:id="@+id/subjects_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/subject_item_view"
+                tools:listitem="@layout/item_subject"
                 />
 
 

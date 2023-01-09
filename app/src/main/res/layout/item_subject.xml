@@ -2,26 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#B4CACA">
+    android:background="#B4CACA"
+    android:id="@+id/itemSubjectLayout"
+    >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"
+        android:id="@+id/subjectName"
         android:textColor="@color/black"
-        android:text="Name"
+        android:text="Subject name"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="5dp"
+        android:textStyle="bold"
         ></TextView>
 
     <TextView
         android:id="@+id/yearName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="YearName"
+        android:text="Year name"
         android:textColor="@color/black"
-        android:layout_below="@id/name"
+        android:layout_below="@id/subjectName"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="15dp"></TextView>
     <LinearLayout

@@ -1,4 +1,6 @@
-package com.example.learnlink;
+package com.example.learnlink.Model;
+
+import com.example.learnlink.Model.Year;
 
 public class Subject {
     private int id=0;
