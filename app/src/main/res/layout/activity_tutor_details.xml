@@ -46,10 +46,10 @@
             android:textColor="@color/white"
             android:textSize="22dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tutor_detail_activity_tv_tutorEmail3" />
+            app:layout_constraintTop_toBottomOf="@+id/tutor_detail_activity_tv_tutorEmail" />
 
         <TextView
-            android:id="@+id/tutor_detail_activity_tv_tutorEmail3"
+            android:id="@+id/tutor_detail_activity_tv_tutorEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -60,10 +60,10 @@
             android:textColor="@color/white"
             android:textSize="22dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/tutor_detail_activity_tv_tutorImg" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/tutor_detail_activity_tv_tutorImg"
             android:layout_width="118dp"
             android:layout_height="120dp"
             android:layout_marginTop="52dp"
@@ -82,7 +82,7 @@
             android:textColor="@color/black"
             android:textSize="29dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/tutor_detail_activity_tv_tutorImg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
