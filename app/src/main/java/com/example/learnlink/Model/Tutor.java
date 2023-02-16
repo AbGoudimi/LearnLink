@@ -9,6 +9,9 @@ public class Tutor extends Student{
         super(firstName, lastName, email, password, phoneNumber);
         TutorSubjects = tutorSubjects;
     }
+    public Tutor(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
 
     public List<Subject> getTutorSubjects() {
         return TutorSubjects;
