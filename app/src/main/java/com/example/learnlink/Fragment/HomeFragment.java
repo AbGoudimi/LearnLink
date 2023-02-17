@@ -97,10 +97,10 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
 
     private void dataInitilize() {
         subjects = new ArrayList<Subject>();
-        subjects.add(new Subject("c++",new Year("isi4")));
+/*        subjects.add(new Subject("c++",new Year("isi4")));
         subjects.add(new Subject("c#",new Year("isi4")));
         subjects.add(new Subject("java",new Year("isi4")));
-        subjects.add(new Subject("sgbd",new Year("isi4")));
+        subjects.add(new Subject("sgbd",new Year("isi4")));*/
     }
 
     @Override

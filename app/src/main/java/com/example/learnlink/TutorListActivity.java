@@ -37,16 +37,16 @@ public class TutorListActivity extends AppCompatActivity implements TutorRecycle
     private void dataInitilize() {
         subjects = new ArrayList<Subject>();
         tutors = new ArrayList<Tutor>();
-        subjects.add(new Subject("c++",new Year("isi4")));
-        subjects.add(new Subject("c#",new Year("isi4")));
-        subjects.add(new Subject("java",new Year("isi4")));
-        subjects.add(new Subject("sgbd",new Year("isi4")));
-        tutors.add(new Tutor("Abdellah","Goudimi","AG@gmail.com","123","+212 607957797",subjects));
-        tutors.add(new Tutor("Samuel", "Johnson", "samuelj@gmail.com", "123", "+1 555 123 4567",subjects));
-        tutors.add(new Tutor("Emma", "Williams", "emmaw@gmail.com", "456", "+44 777 456 7890",subjects));
-        tutors.add(new Tutor("Michael", "Brown", "michaelb@gmail.com", "789", "+61 987 654 3210",subjects));
-        tutors.add(new Tutor("Sophia", "Lee", "sophial@gmail.com", "246", "+82 010 1234 5678",subjects));
-        tutors.add(new Tutor("David", "Smith", "davids@gmail.com", "369", "+34 678 901 2345",subjects));
+//        subjects.add(new Subject("c++",new Year("isi4")));
+//        subjects.add(new Subject("c#",new Year("isi4")));
+//        subjects.add(new Subject("java",new Year("isi4")));
+//        subjects.add(new Subject("sgbd",new Year("isi4")));
+//        tutors.add(new Tutor("Abdellah","Goudimi","AG@gmail.com","123","+212 607957797",subjects));
+//        tutors.add(new Tutor("Samuel", "Johnson", "samuelj@gmail.com", "123", "+1 555 123 4567",subjects));
+//        tutors.add(new Tutor("Emma", "Williams", "emmaw@gmail.com", "456", "+44 777 456 7890",subjects));
+//        tutors.add(new Tutor("Michael", "Brown", "michaelb@gmail.com", "789", "+61 987 654 3210",subjects));
+//        tutors.add(new Tutor("Sophia", "Lee", "sophial@gmail.com", "246", "+82 010 1234 5678",subjects));
+//        tutors.add(new Tutor("David", "Smith", "davids@gmail.com", "369", "+34 678 901 2345",subjects));
     }
 
     @Override

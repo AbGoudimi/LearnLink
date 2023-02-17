@@ -7,6 +7,24 @@
     android:background="@drawable/bg"
     tools:context=".RegisterActivity">
 
+    <EditText
+        android:id="@+id/et_phoneNumber"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/costume_input"
+        android:drawableStart="@drawable/ic_phone"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_passwordLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_passwordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/et_passwordLogin" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/view2"
         android:layout_width="80dp"
@@ -36,6 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:text="Create account"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -48,8 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="tutor ?"
-        app:layout_constraintStart_toStartOf="@+id/et_passwordLogin"
-        app:layout_constraintTop_toBottomOf="@+id/et_passwordLogin" />
+        app:layout_constraintStart_toStartOf="@+id/et_phoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/et_phoneNumber" />
 
     <EditText
         android:id="@+id/et_passwordLogin"
@@ -124,41 +144,29 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/btn_register"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:background="@drawable/costume_button"
-        android:text="Register"
-        app:layout_constraintEnd_toEndOf="@+id/et_passwordLogin"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_passwordLogin"
-        app:layout_constraintTop_toBottomOf="@+id/et_passwordLogin" />
-
-    <Button
         android:id="@+id/btn_login"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/costume_button"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="@+id/btn_register"
-        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintHorizontal_bias="1.0"
 
         app:layout_constraintStart_toStartOf="@+id/btn_register"
         app:layout_constraintTop_toBottomOf="@+id/btn_register" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Or"
-        app:layout_constraintEnd_toEndOf="@+id/btn_register"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/btn_register"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register" />
-
+        android:layout_marginTop="124dp"
+        android:background="@drawable/costume_button"
+        android:text="Register"
+        app:layout_constraintEnd_toEndOf="@+id/et_passwordLogin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/et_passwordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/et_passwordLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

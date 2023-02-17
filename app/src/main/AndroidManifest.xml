@@ -13,6 +13,20 @@
         android:theme="@style/Theme.LearnLink"
         tools:targetApi="31">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".TutorDetailsActivity"
             android:exported="false"
             android:parentActivityName=".TutorListActivity">

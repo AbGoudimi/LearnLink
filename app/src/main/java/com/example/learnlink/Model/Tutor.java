@@ -1,17 +1,12 @@
 package com.example.learnlink.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tutor extends Student{
     private List<Subject> TutorSubjects;
 
-    public Tutor(String firstName, String lastName, String email, String password, String phoneNumber, List<Subject> tutorSubjects) {
-        super(firstName, lastName, email, password, phoneNumber);
-        TutorSubjects = tutorSubjects;
-    }
-    public Tutor(String firstName, String lastName) {
-        super(firstName, lastName);
-    }
+
 
     public List<Subject> getTutorSubjects() {
         return TutorSubjects;

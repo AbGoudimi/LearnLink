@@ -1,34 +1,45 @@
 package com.example.learnlink.Model;
 
 public class Student {
-    private int id=0;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private String phoneNumber;
 
-    public Student(String firstName, String lastName, String email, String password, String phoneNumber) {
-        this.id = id++;
+    public boolean isIstutor() {
+        return isTutor;
+    }
+
+    public void setIstutor(boolean istutor) {
+        this.isTutor = istutor;
+    }
+
+    boolean isTutor;
+
+    public Student(String id ,String firstName, String lastName, String email, String phoneNumber,boolean istutor) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.phoneNumber = phoneNumber;
+        this.isTutor = istutor;
     }
-    public Student(String firstName, String lastName) {
-        this.id = id++;
+    public Student(String id ,String firstName, String lastName,boolean istutor) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.isTutor = istutor;
     }
     public Student() {}
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

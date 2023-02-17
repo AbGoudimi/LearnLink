@@ -3,21 +3,21 @@ package com.example.learnlink.Model;
 import com.example.learnlink.Model.Year;
 
 public class Subject {
-    private int id=0;
+    private String id;
     private String name;
     private Year year;
 
-    public Subject(String name, Year year) {
-        id = id++;
+    public Subject(String id,String name, Year year) {
+        this.id = id;
         this.name = name;
         this.year = year;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
