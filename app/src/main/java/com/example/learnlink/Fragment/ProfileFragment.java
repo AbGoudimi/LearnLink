@@ -23,6 +23,7 @@ import com.example.learnlink.LoginActivity;
 import com.example.learnlink.Model.Student;
 import com.example.learnlink.Model.Tutor;
 import com.example.learnlink.R;
+import com.example.learnlink.TeachableSubjectsActivity;
 import com.example.learnlink.TutorListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -155,6 +156,13 @@ public class ProfileFragment extends Fragment {
                 sharedPreferences.edit().clear().apply();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+        tutorable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), TeachableSubjectsActivity.class);
                 startActivity(intent);
             }
         });

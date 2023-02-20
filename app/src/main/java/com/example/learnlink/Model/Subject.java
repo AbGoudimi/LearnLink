@@ -12,6 +12,9 @@ public class Subject {
         this.name = name;
         this.year = year;
     }
+    public Subject() {
+
+    }
 
     public String getId() {
         return id;
@@ -36,4 +39,5 @@ public class Subject {
     public void setYear(Year year) {
         this.year = year;
     }
+
 }

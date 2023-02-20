@@ -33,8 +33,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
-        holder.name.setText(subjects.get(position).getName());
-        holder.yearName.setText(subjects.get(position).getYear().getName());
+
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

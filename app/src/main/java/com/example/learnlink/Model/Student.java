@@ -1,5 +1,7 @@
 package com.example.learnlink.Model;
 
+import java.util.List;
+
 public class Student {
     private String id;
     private String firstName;
@@ -15,9 +17,32 @@ public class Student {
     public void setIstutor(boolean istutor) {
         this.isTutor = istutor;
     }
-
+    private List<Subject> TutorSubjects;
     boolean isTutor;
+    public List<Subject> getTutorSubjects() {
+        return TutorSubjects;
+    }
+    public void removeTutorSubject(Subject item) {
+        TutorSubjects.remove(item);
+    }
 
+    public Student(String id, String firstName, String lastName, String email, String password, String phoneNumber, List<Subject> tutorSubjects, boolean isTutor) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        TutorSubjects = tutorSubjects;
+        this.isTutor = isTutor;
+    }
+
+    public void setTutorSubjects(List<Subject> tutorSubjects) {
+        TutorSubjects = tutorSubjects;
+    }
+    public void addTutorSubject(Subject subject){
+        TutorSubjects.add(subject);
+    }
     public Student(String id ,String firstName, String lastName, String email, String phoneNumber,boolean istutor) {
         this.id = id;
         this.firstName = firstName;

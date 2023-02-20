@@ -8,6 +8,9 @@ public class Year {
         this.id = id;
         this.name = name;
     }
+    public Year() {
+
+    }
 
     public String getId() {
         return id;
