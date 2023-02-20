@@ -17,9 +17,9 @@ public class MultiSubjectViewHolder extends RecyclerView.ViewHolder{
     ImageView checkImg;
     public MultiSubjectViewHolder(@NonNull View itemView) {
         super(itemView);
-        name = itemView.findViewById(R.id.subjectName);
-        yearName = itemView.findViewById(R.id.yearName);
-        checkImg = itemView.findViewById(R.id.checkmark);
+        name = itemView.findViewById(R.id.subjectNameMulti);
+        yearName = itemView.findViewById(R.id.yearNameMulti);
+        checkImg = itemView.findViewById(R.id.checkmarkMulti);
     }
     void bind(Subject subject,Student student){
 

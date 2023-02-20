@@ -34,7 +34,7 @@ public class TeachableSubjectsActivity extends AppCompatActivity {
     private FirebaseAuth Auth;
     Student tutor;
     Button saveButton;
-    ArrayList<Subject> subjects = new ArrayList<>();
+    ArrayList<Subject> subjects ;
     FirebaseUser currentUser;
 
     @Override

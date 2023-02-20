@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#B4CACA"
-    android:id="@+id/itemSubjectLayout"
+    android:id="@+id/item_select_subject"
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/subjectName"
+        android:id="@+id/subjectNameMulti"
         android:textColor="@color/black"
         android:text="Subject name"
         android:textSize="20dp"
@@ -20,30 +20,29 @@
         ></TextView>
 
     <TextView
-        android:id="@+id/yearName"
+        android:id="@+id/yearNameMulti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Year name"
         android:textColor="@color/black"
-        android:layout_below="@id/subjectName"
+        android:layout_below="@id/subjectNameMulti"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="15dp"></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_below="@id/yearName"
+        android:layout_below="@id/yearNameMulti"
         android:background="@drawable/costume_button"></LinearLayout>
 
     <ImageView
-        android:id="@+id/checkmark"
+        android:id="@+id/checkmarkMulti"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
 
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        app:srcCompat="@drawable/ic_checkmark" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@mipmap/ic_checkmark1" />
 </RelativeLayout>

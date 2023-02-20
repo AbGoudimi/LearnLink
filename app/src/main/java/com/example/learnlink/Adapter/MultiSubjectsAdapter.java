@@ -26,16 +26,6 @@ public class MultiSubjectsAdapter extends RecyclerView.Adapter<MultiSubjectViewH
 
     }
 
-    public void setSubjects(ArrayList<Subject> subjects){
-        this.subjects= new ArrayList<>();
-        this.subjects = subjects;
-        notifyDataSetChanged();
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
     public ArrayList<Subject> getAll(){return subjects;}
     public ArrayList<Subject> getSelected() {
         ArrayList<Subject> selected = new ArrayList<>();
