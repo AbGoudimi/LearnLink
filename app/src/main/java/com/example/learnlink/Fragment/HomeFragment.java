@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,11 @@ import com.example.learnlink.Model.Year;
 import com.example.learnlink.R;
 import com.example.learnlink.Adapter.SubjectAdapter;
 import com.example.learnlink.TutorListActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +44,11 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    List<Subject> subjects;
+    ArrayList<Subject> subjects;
     RecyclerView recyclerView;
+    FirebaseDatabase database;
+    DatabaseReference ref;
+    SubjectAdapter adapter;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -86,21 +95,40 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        dataInitilize();
         recyclerView = getView().findViewById(R.id.subjects_recycler_view);
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("subjects");
+        subjects = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        SubjectAdapter adapter = new SubjectAdapter(getContext(),subjects,this);
+        adapter = new SubjectAdapter(getContext(),subjects,this);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Subject subject = snapshot.getValue(Subject.class);
+                    subjects.add(subject);
+                    //Log.d("Subjects", "Received subject: " + subject.getName() + subject.getYear().getName());
+                }
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors here
+            }
+        });
+
     }
 
     private void dataInitilize() {
-        subjects = new ArrayList<Subject>();
-/*        subjects.add(new Subject("c++",new Year("isi4")));
-        subjects.add(new Subject("c#",new Year("isi4")));
-        subjects.add(new Subject("java",new Year("isi4")));
-        subjects.add(new Subject("sgbd",new Year("isi4")));*/
+
+
+//        subjects.add(new Subject("1","c++",new Year("1","isi4")));
+//        subjects.add(new Subject("2","c#",new Year("2","isi4")));
+//        subjects.add(new Subject("3","java",new Year("3","isi4")));
+//        subjects.add(new Subject("4","sgbd",new Year("4","isi4")));
     }
 
     @Override

@@ -4,12 +4,13 @@ public class Year {
     private String id;
     private String name;
 
-    public Year(String id ,String name) {
+
+    public Year(String id, String name) {
         this.id = id;
         this.name = name;
     }
-    public Year() {
 
+    public Year() {
     }
 
     public String getId() {

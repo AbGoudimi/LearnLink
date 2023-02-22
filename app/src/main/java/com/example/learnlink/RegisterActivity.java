@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.learnlink.Model.Student;
+import com.example.learnlink.Model.Subject;
 import com.example.learnlink.Model.Tutor;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText emailTextView, passwordTextView, firstNameTextView, LastNameTextView , phoneNumberTextView;
@@ -37,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
     CheckBox TutorCheckBox;
     private FirebaseAuth mAuth;
     DatabaseReference mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +72,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Take the value of two edit texts in Strings
         String email, password, firstName, lastName, phoneNumber ;
+        ArrayList<Subject> TeachableSubjects;
         boolean isTutor;
         email = emailTextView.getText().toString();
         password = passwordTextView.getText().toString();
         firstName = firstNameTextView.getText().toString();
         lastName = LastNameTextView.getText().toString();
         phoneNumber = phoneNumberTextView.getText().toString();
+        TeachableSubjects= new ArrayList<>();
         isTutor = TutorCheckBox.isChecked();
         // Validations for input email and password
         if (TextUtils.isEmpty(email)) {
@@ -126,7 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
                         mDatabase = FirebaseDatabase.getInstance().getReference();
 
                         String userId = user.getUid();
-                        Student newUser = new Student(userId,firstName, lastName, email, phoneNumber ,isTutor);
+                        Student newUser = new Student(userId,firstName, lastName, email, phoneNumber ,TeachableSubjects,isTutor);
                         mDatabase.child("users").child(userId).setValue(newUser);
 
 

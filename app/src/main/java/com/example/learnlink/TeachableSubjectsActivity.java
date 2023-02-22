@@ -32,24 +32,32 @@ public class TeachableSubjectsActivity extends AppCompatActivity {
     private MultiSubjectsAdapter Adapter;
     private DatabaseReference Database;
     private FirebaseAuth Auth;
+    DatabaseReference usersRef;
+    DatabaseReference subjectsRef ;
     Student tutor;
     Button saveButton;
     ArrayList<Subject> subjects ;
     FirebaseUser currentUser;
+    private boolean isTutorLoaded = false;
+    private boolean isSubjectsLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teachable_subjects);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+        usersRef = FirebaseDatabase.getInstance().getReference("users");
+        tutor= new Student();
         if (currentUser != null) {
             usersRef.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                         tutor = dataSnapshot.getValue(Student.class);
-                        Log.d("TAG", "Tutor information: " + tutor.getFirstName());
+                        Student tut = new Student();
+                        tut = dataSnapshot.getValue(Student.class);
+                        tutor = tut;
+                        isTutorLoaded = true;
+                        setupRecyclerView();
                     }
                 }
                 @Override
@@ -57,31 +65,30 @@ public class TeachableSubjectsActivity extends AppCompatActivity {
                 }
             });
         }
-        DatabaseReference subjectsRef = FirebaseDatabase.getInstance().getReference("subjects");
+        MultiSubjectsRecyclerView = findViewById(R.id.multi_subjects_recycler_view);
+        subjectsRef = FirebaseDatabase.getInstance().getReference("subjects");
+        subjects=new ArrayList<>();
+        MultiSubjectsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+
+
+        //MultiSubjectsRecyclerView.setHasFixedSize(true);
+
         subjectsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Subject subject = snapshot.getValue(Subject.class);
                     subjects.add(subject);
-                    Log.d("TeachableSubjects", "Received subject: " + subject.getName());
-
+                    isSubjectsLoaded = true;
+                    setupRecyclerView();
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        Auth = FirebaseAuth.getInstance();
-        Database = FirebaseDatabase.getInstance().getReference();
-
-        MultiSubjectsRecyclerView = findViewById(R.id.multi_subjects_recycler_view);
-        MultiSubjectsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MultiSubjectsRecyclerView.setHasFixedSize(true);
-        Adapter = new MultiSubjectsAdapter(this, tutor,subjects);
-        MultiSubjectsRecyclerView.setAdapter(Adapter);
-        Adapter.notifyDataSetChanged();
         saveButton = findViewById(R.id.btn_save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,17 +98,25 @@ public class TeachableSubjectsActivity extends AppCompatActivity {
         });
     }
 
-
+    private void setupRecyclerView() {
+        if (isTutorLoaded && isSubjectsLoaded) {
+            Adapter = new MultiSubjectsAdapter(TeachableSubjectsActivity.this, tutor, subjects);
+            MultiSubjectsRecyclerView.setAdapter(Adapter);
+            Adapter.notifyDataSetChanged();
+        }
+    }
     private void saveTeachableSubjects() {
         ArrayList<Subject> selectedSubjects = Adapter.getSelected();
         FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference("Tutors")
+        DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference("users")
                 .child(mFirebaseUser.getUid())
-                .child("teachableSubjects");
+                .child("TutorSubjects");
+
         mDatabaseRef.setValue(selectedSubjects).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+
                     Toast.makeText(TeachableSubjectsActivity.this, "Teachable subjects saved", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(TeachableSubjectsActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

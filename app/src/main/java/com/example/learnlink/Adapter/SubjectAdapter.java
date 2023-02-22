@@ -12,14 +12,15 @@ import com.example.learnlink.Interface.SubjectRecyclerViewInterface;
 import com.example.learnlink.Model.Subject;
 import com.example.learnlink.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder> {
     private final SubjectRecyclerViewInterface subjectRecyclerViewInterface;
     Context context;
-    List<Subject> subjects;
+    ArrayList<Subject> subjects;
 
-    public SubjectAdapter(Context context, List<Subject> subjects , SubjectRecyclerViewInterface subjectRecyclerViewInterface) {
+    public SubjectAdapter(Context context, ArrayList<Subject> subjects , SubjectRecyclerViewInterface subjectRecyclerViewInterface) {
         this.context = context;
         this.subjects = subjects;
         this.subjectRecyclerViewInterface = subjectRecyclerViewInterface;
@@ -33,7 +34,9 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
-
+        Subject subject = subjects.get(position);
+        holder.name.setText(subject.getName());
+        holder.yearName.setText(subject.getYear().getName());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

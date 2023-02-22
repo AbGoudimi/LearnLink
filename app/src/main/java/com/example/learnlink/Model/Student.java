@@ -1,5 +1,6 @@
 package com.example.learnlink.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
@@ -9,7 +10,9 @@ public class Student {
     private String email;
     private String password;
     private String phoneNumber;
-
+    boolean isTutor;
+    private List<Subject> TutorSubjects;
+    private List<Subject> favoriteSubjects;
     public boolean isIstutor() {
         return isTutor;
     }
@@ -17,8 +20,8 @@ public class Student {
     public void setIstutor(boolean istutor) {
         this.isTutor = istutor;
     }
-    private List<Subject> TutorSubjects;
-    boolean isTutor;
+
+
     public List<Subject> getTutorSubjects() {
         return TutorSubjects;
     }
@@ -26,18 +29,17 @@ public class Student {
         TutorSubjects.remove(item);
     }
 
-    public Student(String id, String firstName, String lastName, String email, String password, String phoneNumber, List<Subject> tutorSubjects, boolean isTutor) {
+    public Student(String id, String firstName, String lastName, String email, String phoneNumber, ArrayList<Subject> tutorSubjects, boolean isTutor) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.phoneNumber = phoneNumber;
-        TutorSubjects = tutorSubjects;
+        this.TutorSubjects = tutorSubjects;
         this.isTutor = isTutor;
     }
 
-    public void setTutorSubjects(List<Subject> tutorSubjects) {
+    public void setTutorSubjects(ArrayList<Subject> tutorSubjects) {
         TutorSubjects = tutorSubjects;
     }
     public void addTutorSubject(Subject subject){
@@ -50,12 +52,14 @@ public class Student {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.isTutor = istutor;
+        this.TutorSubjects=new ArrayList<>();
     }
     public Student(String id ,String firstName, String lastName,boolean istutor) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.isTutor = istutor;
+        this.TutorSubjects=new ArrayList<>();
     }
     public Student() {}
 

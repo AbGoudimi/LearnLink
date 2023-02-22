@@ -23,10 +23,8 @@ public class MultiSubjectsAdapter extends RecyclerView.Adapter<MultiSubjectViewH
         this.context = context;
         this.subjects = subjects;
         this.student=student;
-
     }
 
-    public ArrayList<Subject> getAll(){return subjects;}
     public ArrayList<Subject> getSelected() {
         ArrayList<Subject> selected = new ArrayList<>();
         for(int i = 0 ; i<student.getTutorSubjects().size();i++){
@@ -43,10 +41,10 @@ public class MultiSubjectsAdapter extends RecyclerView.Adapter<MultiSubjectViewH
 
     @Override
     public void onBindViewHolder(@NonNull MultiSubjectViewHolder holder, int position) {
-        holder.checkImg.setVisibility(student.getTutorSubjects().contains(subjects.get(position)) ? View.VISIBLE : View.GONE);
-        holder.name.setText(subjects.get(position).getName());
-        holder.yearName.setText(subjects.get(position).getYear().getName());
-        holder.bind(subjects.get(position),student);
+        Subject subject = subjects.get(position);
+        holder.bind(subject,student);
+        holder.name.setText(subject.getName());
+        holder.yearName.setText(subject.getYear().getName());
     }
 
     @Override
