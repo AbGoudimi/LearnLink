@@ -23,6 +23,7 @@ public class MultiSubjectsAdapter extends RecyclerView.Adapter<MultiSubjectViewH
         this.context = context;
         this.subjects = subjects;
         this.student=student;
+
     }
 
     public ArrayList<Subject> getSelected() {
