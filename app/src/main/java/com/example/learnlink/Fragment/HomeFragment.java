@@ -13,12 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.learnlink.Interface.SubjectRecyclerViewInterface;
 import com.example.learnlink.Model.Subject;
 import com.example.learnlink.Model.Year;
 import com.example.learnlink.R;
 import com.example.learnlink.Adapter.SubjectAdapter;
+import com.example.learnlink.StudentFavoriteSubjectsActivity;
 import com.example.learnlink.TutorListActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +51,8 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
     FirebaseDatabase database;
     DatabaseReference ref;
     SubjectAdapter adapter;
+    Button Favorite;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -103,7 +107,13 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
         recyclerView.setHasFixedSize(true);
         adapter = new SubjectAdapter(getContext(),subjects,this);
         recyclerView.setAdapter(adapter);
-
+        Favorite=getView().findViewById(R.id.btn_favoris);
+        Favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), StudentFavoriteSubjectsActivity.class));
+            }
+        });
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -121,6 +131,7 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
         });
 
     }
+
 
     private void dataInitilize() {
 
