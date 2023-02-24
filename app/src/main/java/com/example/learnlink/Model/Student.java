@@ -13,6 +13,15 @@ public class Student {
     boolean isTutor;
     private List<Subject> TutorSubjects;
     private List<Subject> favoriteSubjects;
+
+    public List<Subject> getFavoriteSubjects() {
+        return favoriteSubjects;
+    }
+
+    public void setFavoriteSubjects(List<Subject> favoriteSubjects) {
+        this.favoriteSubjects = favoriteSubjects;
+    }
+
     public boolean isIstutor() {
         return isTutor;
     }
@@ -28,6 +37,9 @@ public class Student {
     public void removeTutorSubject(Subject item) {
         TutorSubjects.remove(item);
     }
+    public void removeFavoriteSubject(Subject item) {
+        favoriteSubjects.remove(item);
+    }
 
     public Student(String id, String firstName, String lastName, String email, String phoneNumber, ArrayList<Subject> tutorSubjects, boolean isTutor) {
         this.id = id;
@@ -39,11 +51,25 @@ public class Student {
         this.isTutor = isTutor;
     }
 
+    public Student(String id, String firstName, String lastName, String email, String phoneNumber, boolean isTutor, List<Subject> tutorSubjects, List<Subject> favoriteSubjects) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.isTutor = isTutor;
+        TutorSubjects = tutorSubjects;
+        this.favoriteSubjects = favoriteSubjects;
+    }
+
     public void setTutorSubjects(ArrayList<Subject> tutorSubjects) {
         TutorSubjects = tutorSubjects;
     }
     public void addTutorSubject(Subject subject){
         TutorSubjects.add(subject);
+    }
+    public void addFavoriteSubject(Subject subject){
+        favoriteSubjects.add(subject);
     }
     public Student(String id ,String firstName, String lastName, String email, String phoneNumber,boolean istutor) {
         this.id = id;
