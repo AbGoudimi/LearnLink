@@ -132,8 +132,9 @@ public class HomeFragment extends Fragment implements SubjectRecyclerViewInterfa
     }
 
     @Override
-    public void onItemClick(Subject subject) {
+    public void onItemClick(String subject) {
         Intent i = new Intent(getActivity(), TutorListActivity.class);
+        i.putExtra("subjectName",subject);
         startActivity(i);
     }
 }

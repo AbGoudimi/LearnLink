@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.learnlink.Interface.TutorRecyclerViewInterface;
+import com.example.learnlink.Model.Student;
 import com.example.learnlink.Model.Tutor;
 import com.example.learnlink.R;
 
@@ -17,9 +18,9 @@ import java.util.List;
 public class TutorAdapter extends RecyclerView.Adapter<TutorViewHolder>{
     private final TutorRecyclerViewInterface tutorRecyclerViewInterface;
     Context context;
-    List<Tutor> tutors;
+    List<Student> tutors;
 
-    public TutorAdapter(Context context, List<Tutor> tutors , TutorRecyclerViewInterface recyclerViewInterface) {
+    public TutorAdapter(Context context, List<Student> tutors , TutorRecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.tutors = tutors;
         this.tutorRecyclerViewInterface=recyclerViewInterface;
@@ -34,12 +35,12 @@ public class TutorAdapter extends RecyclerView.Adapter<TutorViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull TutorViewHolder holder, int position) {
         holder.TutorEmail.setText(tutors.get(position).getEmail());
-        holder.tutorName.setText(tutors.get(position).getFirstName());
+        holder.tutorName.setText(tutors.get(position).getFirstName()+" "+tutors.get(position).getLastName());
         holder.TutorNumber.setText(tutors.get(position).getPhoneNumber());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tutorRecyclerViewInterface.onItemClick(tutors.get(position));
+                tutorRecyclerViewInterface.onItemClick(tutors.get(position).getId());
             }
         });
     }

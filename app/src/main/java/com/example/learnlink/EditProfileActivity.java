@@ -34,11 +34,11 @@ public class EditProfileActivity extends AppCompatActivity {
         String firstName = data.getStringExtra("firstName");
         String lastName = data.getStringExtra("lastName");
         String phoneNumber = data.getStringExtra("phoneNumber");
-        Boolean isTutor = data.getBooleanExtra("isTutor",false);
+        Boolean istutor = data.getBooleanExtra("isTutor",false);
         tvFirstName.setText(firstName);
         tvLastName.setText(lastName);
         tvPhoneNumber.setText(phoneNumber);
-        cbIsTutor.setChecked(isTutor);
+        cbIsTutor.setChecked(istutor);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(id);
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +60,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     updates.put("firstName", newFirstName);
                     updates.put("lastName", newLastName);
                     updates.put("phoneNumber", newPhoneNumber);
-                    updates.put("isTutor", newIsTutor);
+                    updates.put("istutor", newIsTutor);
                     mDatabase.updateChildren(updates);
 
                     // return to the previous activity

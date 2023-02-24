@@ -40,7 +40,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectViewHolder> {
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                subjectRecyclerViewInterface.onItemClick(subjects.get(position));
+                subjectRecyclerViewInterface.onItemClick(subjects.get(position).getName());
             }
         });
     }
